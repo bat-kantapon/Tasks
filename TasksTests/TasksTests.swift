@@ -1,9 +1,3 @@
-//
-//  TasksTests.swift
-//  TasksTests
-//
-//  Created by Kantapon Makwong on 19/11/2566 BE.
-//
 
 import XCTest
 @testable import Tasks
