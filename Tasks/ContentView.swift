@@ -14,17 +14,20 @@ class NoteViewModel: ObservableObject {
         if let index = notes.firstIndex(where: { $0.id == note.id }) {
             notes[index] = note
         } else {
-            notes.append(note)
+            var newNote = note
+            newNote.id = UUID()
+            notes.append(newNote)
         }
     }
 }
+
+
 
 struct ContentView: View {
     @StateObject private var noteViewModel = NoteViewModel()
 
     var body: some View {
         TabView {
-            // First Page: List of Notes
             NavigationView {
                 List {
                     ForEach(noteViewModel.notes) { note in
@@ -49,21 +52,21 @@ struct ContentView: View {
 
 
             NavigationView {
-                UpdateNoteView(noteViewModel: noteViewModel)
+                UpdateNoteView(noteViewModel: noteViewModel, note: Note(title: "", content: ""))
             }
             .tabItem {
                 Image(systemName: "square.and.pencil")
                 Text("Add")
             }
+
         }
     }
 
-    // Function to delete a note
+    // to delete a note
     func deleteNote(at offsets: IndexSet) {
         noteViewModel.notes.remove(atOffsets: offsets)
     }
 }
-
 
 struct ReadNoteView: View {
     @State private var isEditing = false
@@ -71,14 +74,13 @@ struct ReadNoteView: View {
     @ObservedObject var noteViewModel: NoteViewModel
 
     var body: some View {
-        VStack {
-            Text(note.title)
-                .font(.title)
+        VStack(alignment: .leading) {
             Text(note.content)
-                .padding()
+                .padding(.leading, 8)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
         }
-        .navigationTitle("Read Note")
+        .navigationBarTitle(note.title, displayMode: .inline) // This sets the title at the top-left
         .navigationBarItems(trailing:
             Button(action: {
                 isEditing.toggle()
@@ -93,15 +95,21 @@ struct ReadNoteView: View {
 }
 
 
+
 struct UpdateNoteView: View {
     @ObservedObject var noteViewModel: NoteViewModel
+    @State private var note: Note
     @State private var title: String
     @State private var content: String
 
-    init(noteViewModel: NoteViewModel, note: Note? = nil) {
+    //control presentation mode
+    @Environment(\.presentationMode) var presentationMode
+
+    init(noteViewModel: NoteViewModel, note: Note) {
         self.noteViewModel = noteViewModel
-        _title = State(initialValue: note?.title ?? "")
-        _content = State(initialValue: note?.content ?? "")
+        self._note = State(initialValue: note)
+        _title = State(initialValue: note.title)
+        _content = State(initialValue: note.content)
     }
 
     var body: some View {
@@ -114,15 +122,24 @@ struct UpdateNoteView: View {
                 .padding()
 
             Button("Save") {
-                let editedNote = Note(title: title, content: content)
-                noteViewModel.addOrUpdateNote(editedNote)
-                // Clear the text fields after saving
-                title = ""
-                content = ""
+                // Check title and content not empty before saving
+                if !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+                   !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    // Update instead of creating a new one
+                    note.title = title
+                    note.content = content
+                    noteViewModel.addOrUpdateNote(note)
+
+                    // closee view after saving
+                    presentationMode.wrappedValue.dismiss()
+
+                    // clear text after save
+                    title = ""
+                    content = ""
+                }
             }
             .padding()
         }
-        .navigationTitle("Update or Create Note")
+        .navigationTitle("Create new Note")
     }
 }
-
