@@ -9,7 +9,9 @@ import SwiftUI
 
 struct UpdateNoteView: View {
     @ObservedObject var noteViewModel: NoteViewModel
-    @Binding var note: Note
+    var note: Note
+
+    @State private var editedNote: Note   // Use a separate mutable property
 
     @State private var title: String
     @State private var content: String
@@ -17,11 +19,12 @@ struct UpdateNoteView: View {
     // Control presentation mode
     @Environment(\.presentationMode) var presentationMode
 
-    init(noteViewModel: NoteViewModel, note: Binding<Note>) {
+    init(noteViewModel: NoteViewModel, note: Note) {
         self.noteViewModel = noteViewModel
-        self._note = note 
-        _title = State(initialValue: note.wrappedValue.title)
-        _content = State(initialValue: note.wrappedValue.content)
+        self.note = note
+        self._editedNote = State(initialValue: note)   // Initialize editedNote with the initial value of note
+        _title = State(initialValue: note.title)
+        _content = State(initialValue: note.content)
     }
 
     var body: some View {
@@ -37,10 +40,10 @@ struct UpdateNoteView: View {
                 // Check title and content not empty before saving
                 if !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
                    !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    // Update using two-way binding
-                    note.title = title
-                    note.content = content
-                    noteViewModel.addOrUpdateNote(note)
+                    // Update the editedNote directly
+                    editedNote.title = title
+                    editedNote.content = content
+                    noteViewModel.addOrUpdateNote(editedNote)
 
                     // Close view after saving
                     presentationMode.wrappedValue.dismiss()

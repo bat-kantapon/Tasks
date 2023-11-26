@@ -10,6 +10,7 @@ import SwiftUI
 struct ReadNoteView: View {
     var note: Note
     @ObservedObject var noteViewModel: NoteViewModel
+    @State private var showUpdateNoteView = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -19,8 +20,14 @@ struct ReadNoteView: View {
             Spacer()
         }
         .navigationBarTitle(note.title, displayMode: .inline)
-        .navigationBarItems(trailing: EditButton())
-        
-
+        .navigationBarItems(trailing: Button("Edit") {
+            showUpdateNoteView = true
+        })
+        .sheet(isPresented: $showUpdateNoteView) {
+            UpdateNoteView(noteViewModel: noteViewModel, note: note)
+        }
     }
 }
+
+
+

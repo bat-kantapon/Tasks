@@ -13,6 +13,6 @@ struct AddNoteView: View {
     @State private var newNote = Note(title: "", content: "")
 
     var body: some View {
-        UpdateNoteView(noteViewModel: noteViewModel, note:$newNote)
+        UpdateNoteView(noteViewModel: noteViewModel, note:newNote)
     }
 }

@@ -28,9 +28,9 @@ struct NotesListView: View {
                 
             }
             .navigationTitle("Notes")
-            //.onAppear{
-            //    noteViewModel.fetchNotes()
-           // }
+            .onAppear{
+                noteViewModel.fetchNotes()
+            }
         }
     }
 }
