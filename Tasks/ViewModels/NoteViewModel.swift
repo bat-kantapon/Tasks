@@ -16,21 +16,22 @@ struct NoteResponse: Decodable {
 }
 
 class NoteViewModel: ObservableObject {
-    @Published private(set) var notes: [Note] = []
+    @Published private(set) var userAddedNotes: [Note] = []
+    @Published private(set) var fetchedNotes: [Note] = []
     
-    func addOrUpdateNote(_ note: Note) {
-        if let index = notes.firstIndex(where: { $0.id == note.id }) {
-            notes[index] = note
-        } else {
-            var newNote = note
-            newNote.id = UUID()
-            notes.append(newNote)
+    func addOrUpdateUserAddedNote(_ note: Note) {
+            if let index = userAddedNotes.firstIndex(where: { $0.id == note.id }) {
+                userAddedNotes[index] = note
+            } else {
+                var newNote = note
+                newNote.id = UUID()
+                userAddedNotes.append(newNote)
+            }
         }
-    }
-    
-    func deleteNote(at offsets: IndexSet) {
-        notes.remove(atOffsets: offsets)
-    }
+
+        func deleteNoteUserAdded(at offsets: IndexSet) {
+            userAddedNotes.remove(atOffsets: offsets)
+        }
     
     func fetchNotes() {
             AF.request("https://jsonplaceholder.typicode.com/posts")
@@ -41,7 +42,7 @@ class NoteViewModel: ObservableObject {
                                         let fetchedNotes = notesResponse.map { noteResponse in
                                             return Note(title: noteResponse.title, content: noteResponse.body)
                                         }
-                                        self.notes = fetchedNotes
+                                        self.fetchedNotes = fetchedNotes
                                     case .failure(let error):
                                         print("Error fetching notes: \(error)")
                                     }

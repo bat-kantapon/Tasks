@@ -13,7 +13,7 @@ struct NotesListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(noteViewModel.notes) { note in
+                ForEach(noteViewModel.userAddedNotes) { note in
                     NavigationLink(destination: ReadNoteView(note: note, noteViewModel: noteViewModel)) {
                         VStack(alignment: .leading) {
                             Text(note.title)
@@ -24,13 +24,9 @@ struct NotesListView: View {
                         }
                     }
                 }
-                .onDelete(perform: noteViewModel.deleteNote)
-                
+                .onDelete(perform: noteViewModel.deleteNoteUserAdded)
             }
             .navigationTitle("Notes")
-            .onAppear{
-                noteViewModel.fetchNotes()
-            }
         }
     }
 }

@@ -17,6 +17,12 @@ struct ContentView: View {
                     Image(systemName: "list.bullet")
                     Text("List")
                 }
+            
+            FromOtherView(noteViewModel: noteViewModel)
+                .tabItem {
+                    Image(systemName: "cloud.fill")
+                    Text("Other")
+                }
 
             AddNoteView(noteViewModel: noteViewModel)
                 .tabItem {

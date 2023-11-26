@@ -11,8 +11,7 @@ struct UpdateNoteView: View {
     @ObservedObject var noteViewModel: NoteViewModel
     var note: Note
 
-    @State private var editedNote: Note   // Use a separate mutable property
-
+    @State private var editedNote: Note
     @State private var title: String
     @State private var content: String
 
@@ -22,7 +21,7 @@ struct UpdateNoteView: View {
     init(noteViewModel: NoteViewModel, note: Note) {
         self.noteViewModel = noteViewModel
         self.note = note
-        self._editedNote = State(initialValue: note)   // Initialize editedNote with the initial value of note
+        self._editedNote = State(initialValue: note) // Initialize editedNote with the initial value of note
         _title = State(initialValue: note.title)
         _content = State(initialValue: note.content)
     }
@@ -39,11 +38,11 @@ struct UpdateNoteView: View {
             Button("Save") {
                 // Check title and content not empty before saving
                 if !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-                   !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                     // Update the editedNote directly
                     editedNote.title = title
                     editedNote.content = content
-                    noteViewModel.addOrUpdateNote(editedNote)
+                    noteViewModel.addOrUpdateUserAddedNote(editedNote)
 
                     // Close view after saving
                     presentationMode.wrappedValue.dismiss()

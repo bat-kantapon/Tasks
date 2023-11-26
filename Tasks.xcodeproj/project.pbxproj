@@ -21,6 +21,7 @@
 		163881BD2B12EF8100689721 /* ReadNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163881BC2B12EF8100689721 /* ReadNoteView.swift */; };
 		163881BF2B12EFE000689721 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163881BE2B12EFE000689721 /* AddNoteView.swift */; };
 		163881C12B12F00700689721 /* UpdateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163881C02B12F00700689721 /* UpdateNoteView.swift */; };
+		163881C32B1325A700689721 /* FromOtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163881C22B1325A700689721 /* FromOtherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		163881BC2B12EF8100689721 /* ReadNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNoteView.swift; sourceTree = "<group>"; };
 		163881BE2B12EFE000689721 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		163881C02B12F00700689721 /* UpdateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoteView.swift; sourceTree = "<group>"; };
+		163881C22B1325A700689721 /* FromOtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromOtherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				163881BC2B12EF8100689721 /* ReadNoteView.swift */,
 				163881BE2B12EFE000689721 /* AddNoteView.swift */,
 				163881C02B12F00700689721 /* UpdateNoteView.swift */,
+				163881C22B1325A700689721 /* FromOtherView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				163881C12B12F00700689721 /* UpdateNoteView.swift in Sources */,
 				16319E442B0A35F300F34987 /* TasksApp.swift in Sources */,
 				163881BB2B12EF5A00689721 /* NotesListView.swift in Sources */,
+				163881C32B1325A700689721 /* FromOtherView.swift in Sources */,
 				163881BF2B12EFE000689721 /* AddNoteView.swift in Sources */,
 				163881B32B12EE2100689721 /* Note.swift in Sources */,
 			);
