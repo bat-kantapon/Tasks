@@ -25,6 +25,7 @@ struct NotesListView: View {
                     }
                 }
                 .onDelete(perform: noteViewModel.deleteNote)
+                
             }
             .navigationTitle("Notes")
             //.onAppear{

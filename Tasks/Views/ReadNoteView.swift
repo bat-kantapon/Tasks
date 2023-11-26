@@ -20,5 +20,7 @@ struct ReadNoteView: View {
         }
         .navigationBarTitle(note.title, displayMode: .inline)
         .navigationBarItems(trailing: EditButton())
+        
+
     }
 }
