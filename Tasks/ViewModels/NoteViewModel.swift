@@ -9,6 +9,9 @@ import Foundation
 import Alamofire
 import Combine
 
+import FirebaseCore
+import FirebaseFirestore
+
 struct NoteResponse: Decodable {
     var id: Int
     var title: String
