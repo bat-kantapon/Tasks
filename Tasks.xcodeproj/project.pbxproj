@@ -22,6 +22,9 @@
 		163881BF2B12EFE000689721 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163881BE2B12EFE000689721 /* AddNoteView.swift */; };
 		163881C12B12F00700689721 /* UpdateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163881C02B12F00700689721 /* UpdateNoteView.swift */; };
 		163881C32B1325A700689721 /* FromOtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163881C22B1325A700689721 /* FromOtherView.swift */; };
+		164207252B2AB7D300B6462A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 164207242B2AB7D300B6462A /* FirebaseAuth */; };
+		164207272B2AB7D300B6462A /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 164207262B2AB7D300B6462A /* FirebaseAuthCombine-Community */; };
+		164207292B2AB7D300B6462A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 164207282B2AB7D300B6462A /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				163881A92B12D16A00689721 /* Alamofire in Frameworks */,
+				164207292B2AB7D300B6462A /* FirebaseFirestore in Frameworks */,
+				164207272B2AB7D300B6462A /* FirebaseAuthCombine-Community in Frameworks */,
+				164207252B2AB7D300B6462A /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +100,7 @@
 				16319E532B0A35FB00F34987 /* TasksTests */,
 				16319E5D2B0A35FB00F34987 /* TasksUITests */,
 				16319E412B0A35F300F34987 /* Products */,
+				1642071D2B2AB6F100B6462A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,6 +181,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		1642071D2B2AB6F100B6462A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,6 +206,9 @@
 			name = Tasks;
 			packageProductDependencies = (
 				163881A82B12D16A00689721 /* Alamofire */,
+				164207242B2AB7D300B6462A /* FirebaseAuth */,
+				164207262B2AB7D300B6462A /* FirebaseAuthCombine-Community */,
+				164207282B2AB7D300B6462A /* FirebaseFirestore */,
 			);
 			productName = Tasks;
 			productReference = 16319E402B0A35F300F34987 /* Tasks.app */;
@@ -211,6 +228,8 @@
 				16319E522B0A35FB00F34987 /* PBXTargetDependency */,
 			);
 			name = TasksTests;
+			packageProductDependencies = (
+			);
 			productName = TasksTests;
 			productReference = 16319E502B0A35FB00F34987 /* TasksTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -668,6 +687,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 163881A72B12D16A00689721 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		164207242B2AB7D300B6462A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1642071C2B2AB0F900B6462A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		164207262B2AB7D300B6462A /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1642071C2B2AB0F900B6462A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		164207282B2AB7D300B6462A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1642071C2B2AB0F900B6462A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

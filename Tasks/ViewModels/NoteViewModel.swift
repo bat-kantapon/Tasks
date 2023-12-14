@@ -36,6 +36,19 @@ class NoteViewModel: ObservableObject {
             userAddedNotes.remove(atOffsets: offsets)
         }
     
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+            // [START default_firestore]
+            FirebaseApp.configure()
+
+            let db = Firestore.firestore()
+            // [END default_firestore]
+
+            print(db) // silence warning
+
+            return true
+        }
+    
     func fetchNotes() {
             AF.request("https://jsonplaceholder.typicode.com/posts")
                 .validate(statusCode: 200..<300)
