@@ -15,7 +15,7 @@ import FirebaseDatabase
 struct NoteResponse: Decodable {
     var id: Int
     var title: String
-    var body: String
+    var content: String
 }
 
 class NoteViewModel: ObservableObject {
@@ -45,13 +45,15 @@ class NoteViewModel: ObservableObject {
     }
     
     func fetchNotes() {
-        AF.request("https://jsonplaceholder.typicode.com/posts")
+        //AF.request("https://jsonplaceholder.typicode.com/posts")
+        //AF.request("https://task-realtimedb.firebaseio.com/.json")
+        AF.request("https://task-realtimedb-default-rtdb.asia-southeast1.firebasedatabase.app/notes/-NlgGoYed9eZT9WsMAj5.json")
             .validate(statusCode: 200..<300)
             .responseDecodable(of: [NoteResponse].self) { response in
                 switch response.result {
                     case .success(let notesResponse):
                         let fetchedNotes = notesResponse.map { noteResponse in
-                            return Note(title: noteResponse.title, content: noteResponse.body)
+                            return Note(title: noteResponse.title, content: noteResponse.content)
                         }
                         self.fetchedNotes = fetchedNotes
                     case .failure(let error):
