@@ -46,7 +46,9 @@ class NoteViewModel: ObservableObject {
     }
 
     func deleteNoteUserAdded(at offsets: IndexSet) {
+        let deletedNotes = offsets.map { userAddedNotes[$0] }
         userAddedNotes.remove(atOffsets: offsets)
+        deleteNotesFromFirebase(deletedNotes)
     }
 
     func fetchNotes() {
@@ -84,12 +86,43 @@ class NoteViewModel: ObservableObject {
                     switch response.result {
                     case .success(let result):
                         print("Note posted to Firebase: \(result)")
+
+                        if let jsonData = result.data(using: .utf8),
+                           let json = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any],
+                           let firebaseID = json["name"] as? String {
+                            // Assign the Firebase ID to note
+                            note.firebaseID = firebaseID
+                            print("Firebase ID: \(firebaseID)")
+                        }
                     case .failure(let error):
                         print("Error posting note: \(error)")
                     }
                 }
         } catch {
             print("Error encoding note: \(error)")
+        }
+    }
+    private func deleteNotesFromFirebase(_ notes: [Note]) {
+        for note in notes {
+            if let firebaseID = note.firebaseID {
+                let deleteURL = "https://task-realtimedb-default-rtdb.asia-southeast1.firebasedatabase.app/notes/\(firebaseID).json"
+
+                AF.request(deleteURL, method: .delete)
+                    .validate(statusCode: 200..<300)
+                    .response { response in
+                        switch response.result {
+                        case .success:
+                            print("Note deleted from Firebase. Firebase ID: \(firebaseID)")
+                        case .failure(let error):
+                            if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                                print("Error deleting note from Firebase: \(error)")
+                                print("Firebase error message: \(errorMessage)")
+                            } else {
+                                print("Error deleting note from Firebase: \(error)")
+                            }
+                        }
+                    }
+            }
         }
     }
 }

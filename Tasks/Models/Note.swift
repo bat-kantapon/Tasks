@@ -7,8 +7,21 @@
 
 import Foundation
 
-struct Note: Identifiable {
+//struct Note: Identifiable {
+//    var id = UUID()
+//    var firebaseID: String?
+//    var title: String
+//    var content: String
+//}
+
+class Note: Identifiable {
     var id = UUID()
+    var firebaseID: String?
     var title: String
     var content: String
+
+    init(title: String, content: String) {
+        self.title = title
+        self.content = content
+    }
 }
