@@ -80,7 +80,7 @@ class NoteViewModel: ObservableObject {
 
             AF.upload(requestData, to: url, method: .post, headers: .none)
                 .validate(statusCode: 200..<300)
-                .responseDecodable(of: [String: NoteResponse].self) { response in
+                .responseString { response in
                     switch response.result {
                     case .success(let result):
                         print("Note posted to Firebase: \(result)")
