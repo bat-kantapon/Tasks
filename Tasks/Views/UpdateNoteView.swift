@@ -44,6 +44,9 @@ struct UpdateNoteView: View {
                     editedNote.content = content
                     noteViewModel.addOrUpdateUserAddedNote(editedNote)
 
+                    // Update the note in Firebase
+                    noteViewModel.updateNoteInFirebase(editedNote)
+
                     // Close view after saving
                     presentationMode.wrappedValue.dismiss()
 
@@ -52,6 +55,7 @@ struct UpdateNoteView: View {
                     content = ""
                 }
             }
+
             .padding()
         }
         .navigationTitle("Edit Note")

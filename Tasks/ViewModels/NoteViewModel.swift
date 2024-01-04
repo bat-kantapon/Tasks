@@ -125,5 +125,37 @@ class NoteViewModel: ObservableObject {
             }
         }
     }
+    func updateNoteInFirebase(_ note: Note) {
+        guard let firebaseID = note.firebaseID else {
+            return
+        }
+
+        let updateURL = "https://task-realtimedb-default-rtdb.asia-southeast1.firebasedatabase.app/notes/\(firebaseID).json"
+
+        let noteData = NoteData(
+            id: note.id.uuidString,
+            title: note.title,
+            content: note.content
+        )
+
+        do {
+            let encoder = JSONEncoder()
+            let requestData = try encoder.encode(noteData)
+
+            AF.upload(requestData, to: updateURL, method: .put, headers: .none)
+                .validate(statusCode: 200..<300)
+                .responseString { response in
+                    switch response.result {
+                    case .success(let result):
+                        print("Note updated in Firebase: \(result)")
+                    case .failure(let error):
+                        print("Error updating note: \(error)")
+                    }
+                }
+        } catch {
+            print("Error encoding note: \(error)")
+        }
+    }
+
 }
 
