@@ -17,6 +17,7 @@ struct ReadNoteView: View {
             Text(note.content)
                 .padding(.leading, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .font(Font.custom("Segue UI", size: 18))
             Spacer()
         }
         .navigationBarTitle(note.title, displayMode: .inline)

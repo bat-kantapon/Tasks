@@ -26,7 +26,8 @@
 		164207272B2AB7D300B6462A /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 164207262B2AB7D300B6462A /* FirebaseAuthCombine-Community */; };
 		164207292B2AB7D300B6462A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 164207282B2AB7D300B6462A /* FirebaseFirestore */; };
 		1642072D2B2AE53B00B6462A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1642072C2B2AE53B00B6462A /* FirebaseDatabase */; };
-		1642072F2B2AEF9C00B6462A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1642072E2B2AEF9C00B6462A /* GoogleService-Info.plist */; };
+		6C0034072B4BDFE1001BA226 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C0034062B4BDFE1001BA226 /* GoogleService-Info.plist */; };
+		6C0C09C02B5556C20048F4E7 /* segoe-ui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C0C09BF2B5556C20048F4E7 /* segoe-ui.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +65,9 @@
 		163881BE2B12EFE000689721 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		163881C02B12F00700689721 /* UpdateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoteView.swift; sourceTree = "<group>"; };
 		163881C22B1325A700689721 /* FromOtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromOtherView.swift; sourceTree = "<group>"; };
-		1642072E2B2AEF9C00B6462A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6C0034062B4BDFE1001BA226 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6C0C09BF2B5556C20048F4E7 /* segoe-ui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "segoe-ui.ttf"; path = "../../../Downloads/segoe-ui.ttf"; sourceTree = "<group>"; };
+		6C0C09C12B5557A20048F4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +124,9 @@
 		16319E422B0A35F300F34987 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				1642072E2B2AEF9C00B6462A /* GoogleService-Info.plist */,
+				6C0C09C12B5557A20048F4E7 /* Info.plist */,
+				6C0C09BF2B5556C20048F4E7 /* segoe-ui.ttf */,
+				6C0034062B4BDFE1001BA226 /* GoogleService-Info.plist */,
 				163881B72B12EE4A00689721 /* Views */,
 				163881B42B12EE2900689721 /* ViewModels */,
 				163881B12B12EE0B00689721 /* Models */,
@@ -312,7 +317,8 @@
 			files = (
 				16319E4B2B0A35FA00F34987 /* Preview Assets.xcassets in Resources */,
 				16319E482B0A35FA00F34987 /* Assets.xcassets in Resources */,
-				1642072F2B2AEF9C00B6462A /* GoogleService-Info.plist in Resources */,
+				6C0C09C02B5556C20048F4E7 /* segoe-ui.ttf in Resources */,
+				6C0034072B4BDFE1001BA226 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +517,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Tasks/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tasks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -539,6 +546,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Tasks/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tasks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

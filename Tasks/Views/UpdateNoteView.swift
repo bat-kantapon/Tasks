@@ -30,7 +30,7 @@ struct UpdateNoteView: View {
         VStack {
             TextField("Title", text: $title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+                .padding()            
 
             TextEditor(text: $content)
                 .padding()

@@ -18,9 +18,11 @@ struct NotesListView: View {
                         VStack(alignment: .leading) {
                             Text(note.title)
                                 .font(.headline)
+                                .font(Font.custom("Segue UI", size: 22))
                             Text(note.content)
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
+                                .font(Font.custom("Segue UI", size: 18))
                         }
                     }
                 }
