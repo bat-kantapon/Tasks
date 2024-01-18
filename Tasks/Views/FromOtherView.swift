@@ -16,12 +16,11 @@ struct FromOtherView: View {
                     NavigationLink(destination: ReadNoteView(note: note, noteViewModel: noteViewModel)) {
                         VStack(alignment: .leading) {
                             Text(note.title)
-                                .font(.headline)
-                                .font(Font.custom("Segue UI", size: 18))
+                                .font(Font.custom("Segoe UI", size: 18))
+                                .fontWeight(.bold)
                             Text(note.content)
-                                .font(.subheadline)
+                                .font(Font.custom("Segoe UI", size: 14))
                                 .foregroundColor(.gray)
-                                .font(Font.custom("Segue UI", size: 18))
                         }
                     }
                 }
@@ -29,7 +28,9 @@ struct FromOtherView: View {
             }
             .navigationTitle("Other")
             .onAppear {
-                noteViewModel.fetchNotes()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    noteViewModel.fetchNotes()
+                }
             }
         }
     }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct NotesListView: View {
     @ObservedObject var noteViewModel: NoteViewModel
 
@@ -17,18 +18,19 @@ struct NotesListView: View {
                     NavigationLink(destination: ReadNoteView(note: note, noteViewModel: noteViewModel)) {
                         VStack(alignment: .leading) {
                             Text(note.title)
-                                .font(.headline)
-                                .font(Font.custom("Segue UI", size: 22))
+                                .font(.custom("Segoe UI", size: 18))
+                                //.foregroundColor(.red)
+                            
                             Text(note.content)
-                                .font(.subheadline)
                                 .foregroundColor(.gray)
-                                .font(Font.custom("Segue UI", size: 18))
+                                .font(.custom("Segoe UI", size: 14))
                         }
                     }
                 }
                 .onDelete(perform: noteViewModel.deleteNoteUserAdded)
             }
             .navigationTitle("Notes")
+            .font(.custom("Segoe UI", size: 18))
         }
     }
 }

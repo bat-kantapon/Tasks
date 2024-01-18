@@ -15,20 +15,24 @@ struct ContentView: View {
             NotesListView(noteViewModel: noteViewModel)
                 .tabItem {
                     Image(systemName: "list.bullet")
-                    Text("List").font(Font.custom("Segue UI", size: 18))
+                    Text("List")
                 }
+                //.font(Font.custom("Segoe UI", size: 18))
             
             FromOtherView(noteViewModel: noteViewModel)
                 .tabItem {
                     Image(systemName: "cloud.fill")
-                    Text("Other").font(Font.custom("Segue UI", size: 18))
+                    Text("Other")
                 }
+                //.font(Font.custom("Segoe UI", size: 18))
 
             AddNoteView(noteViewModel: noteViewModel)
                 .tabItem {
                     Image(systemName: "square.and.pencil")
-                    Text("Add").font(Font.custom("Segue UI", size: 18))
+                    Text("Add")
                 }
+                //.font(Font.custom("Segoe UI", size: 18))
         }
+        .font(Font.custom("Segoe UI", size: 18))
     }
 }
