@@ -38,7 +38,7 @@ class NoteViewModel: ObservableObject {
         if let index = userAddedNotes.firstIndex(where: { $0.id == note.id }) {
             userAddedNotes[index] = note
         } else {
-            var newNote = note
+            let newNote = note
             newNote.id = UUID()
             userAddedNotes.append(newNote)
             saveNoteToFirebase(newNote)

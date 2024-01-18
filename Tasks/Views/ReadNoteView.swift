@@ -18,9 +18,13 @@ struct ReadNoteView: View {
                 .padding(.leading, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(Font.custom("Segoe UI", size: 18))
+                .foregroundColor(Color(red: 0.02, green: 0.02, blue: 0.13))
             Spacer()
         }
+        //.background(Color(red: 0.02, green: 0.02, blue: 0.13))
+        .background(Color(red: 1, green: 0.93, blue: 0.67))
         .navigationBarTitle(note.title, displayMode: .inline)
+        .foregroundColor(Color(red: 0.02, green: 0.02, blue: 0.13))
         .navigationBarItems(trailing: Button("Edit") {
             showUpdateNoteView = true
         })

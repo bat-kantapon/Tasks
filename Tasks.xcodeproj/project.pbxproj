@@ -28,6 +28,7 @@
 		1642072D2B2AE53B00B6462A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1642072C2B2AE53B00B6462A /* FirebaseDatabase */; };
 		6C0034072B4BDFE1001BA226 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C0034062B4BDFE1001BA226 /* GoogleService-Info.plist */; };
 		6CBC27BD2B5761F0005C65D9 /* segoe-ui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBC27BC2B5761F0005C65D9 /* segoe-ui.ttf */; };
+		6CBC27C12B594B08005C65D9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC27C02B594B08005C65D9 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		6C0034062B4BDFE1001BA226 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6C0C09C12B5557A20048F4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6CBC27BC2B5761F0005C65D9 /* segoe-ui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "segoe-ui.ttf"; sourceTree = "<group>"; };
+		6CBC27C02B594B08005C65D9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				163881BE2B12EFE000689721 /* AddNoteView.swift */,
 				163881C02B12F00700689721 /* UpdateNoteView.swift */,
 				163881C22B1325A700689721 /* FromOtherView.swift */,
+				6CBC27C02B594B08005C65D9 /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				163881B92B12EF1A00689721 /* ContentView.swift in Sources */,
 				163881BD2B12EF8100689721 /* ReadNoteView.swift in Sources */,
 				163881C12B12F00700689721 /* UpdateNoteView.swift in Sources */,
+				6CBC27C12B594B08005C65D9 /* CustomButton.swift in Sources */,
 				16319E442B0A35F300F34987 /* TasksApp.swift in Sources */,
 				163881BB2B12EF5A00689721 /* NotesListView.swift in Sources */,
 				163881C32B1325A700689721 /* FromOtherView.swift in Sources */,

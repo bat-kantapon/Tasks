@@ -35,7 +35,7 @@ struct UpdateNoteView: View {
             TextEditor(text: $content)
                 .padding()
 
-            Button("Save") {
+            CustomButton(label: "Save") {
                 // Check title and content not empty before saving
                 if !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
                     !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
@@ -55,7 +55,7 @@ struct UpdateNoteView: View {
                     content = ""
                 }
             }
-
+            .background(Color(red: 1, green: 0.93, blue: 0.67))
             .padding()
         }
         .navigationTitle("Edit Note")
