@@ -27,9 +27,10 @@ class NoteViewModel: ObservableObject {
     @Published private(set) var userAddedNotes: [Note] = []
     @Published private(set) var fetchedNotes: [Note] = []
     private var ref: DatabaseReference!
+    
+    let objectWillChange = PassthroughSubject<Void, Never>()
 
     init() {
-        FirebaseApp.configure()
         ref = Database.database().reference()
         fetchNotes()
     }
@@ -43,12 +44,14 @@ class NoteViewModel: ObservableObject {
             userAddedNotes.append(newNote)
             saveNoteToFirebase(newNote)
         }
+        objectWillChange.send()
     }
 
     func deleteNoteUserAdded(at offsets: IndexSet) {
         let deletedNotes = offsets.map { userAddedNotes[$0] }
         userAddedNotes.remove(atOffsets: offsets)
         deleteNotesFromFirebase(deletedNotes)
+        objectWillChange.send()
     }
 
     func fetchNotes() {
@@ -67,7 +70,7 @@ class NoteViewModel: ObservableObject {
             }
     }
 
-    private func saveNoteToFirebase(_ note: Note) {
+    func saveNoteToFirebase(_ note: Note) {
         let url = "https://task-realtimedb-default-rtdb.asia-southeast1.firebasedatabase.app/notes.json"
 
         let noteData = NoteData(
@@ -156,6 +159,5 @@ class NoteViewModel: ObservableObject {
             print("Error encoding note: \(error)")
         }
     }
-
 }
 

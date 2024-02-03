@@ -14,16 +14,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct TasksApp: App {
-//    init() {
-//        FirebaseApp.configure()
-//    }
-    //@UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    
+    init() {
+            FirebaseApp.configure()
+        }
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
     }
 }
-
-
